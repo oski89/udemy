@@ -66,3 +66,10 @@ with open('text.txt', 'r') as file:
     print(file.readlines())
 
 help(my_list.insert)
+
+
+# Reverse strings in list and print string
+print(" ".join(['Hello', 'World'][::-1]))
+
+# Make string of list
+print(" ".join([1, 3, 3]))
