@@ -1,15 +1,16 @@
 # Reverse a string
-# string = 'abcdefghijk'
+string = 'abcdefghijk'
+print(string)
 
 # The python way
-# my_string = string[::-1]
-# print(my_string)
+my_string = string[::-1]
+print(my_string)
 
 # The for loop way
-# my_string = ''
-# for i in range(len(string) - 1, -1, -1):
-#     my_string += string[i]
-# print(my_string)
+my_string = ''
+for i in range(len(string) - 1, -1, -1):
+    my_string += string[i]
+print(my_string)
 
 # String formatting and f-strings
 # Float formatting follows "{value:width.precision f}"
