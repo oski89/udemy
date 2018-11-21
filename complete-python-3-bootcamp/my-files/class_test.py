@@ -9,6 +9,9 @@ class Animal():
     def eat(self):
         print('I am eating')
 
+    def speak(self):  # Abstract method, defined by convention only
+        raise NotImplementedError("Subclass must implement abstract method")
+
 
 class Dog():
 
@@ -24,16 +27,35 @@ class Dog():
             spot_str = ' don\'t'
         else:
             spot_str = ''
-        print('Woof! My name is {} and I{} have spots.'.format(self.name, spot_str))
+        print(f'Woof! My name is {self.name} and I{spot_str} have spots.')
+
+    def speak(self):
+        return f'{self.name} says woof!'
 
 
-class Cat(Animal):
+class Cat():
 
-    def __init__(self):
-        Animal.__init__(self)
+    def __init__(self, name):
+        self.name = name
 
     def eat(self):
         print('I am a cat and I\'m eating')
+
+    def speak(self):
+        return f'{self.name} says meow!'
+
+
+class Horse(Animal):
+
+    def __init__(self, name):
+        Animal.__init__(self)
+        self.name = name
+
+    def sleep(self):
+        print(f'I am {self.name} the horse and I\'m sleeping')
+
+    def eat(self):
+        print(f'I am {self.name} the horse and I\'m eating')
 
 
 class Book():
@@ -50,12 +72,22 @@ class Book():
         return self.pages
 
 
-dog = Dog(breed='Westie', name='Elsa', spots=False)
-dog.bark()
+# Attributes and methods
+elsa = Dog(breed='Westie', name='Elsa', spots=False)
+elsa.bark()
+nisse = Cat('Nisse')
+nisse.eat()
 
-cat = Cat()
-cat.eat()
+# Inheritance
+sven = Horse('Sven')
+sven.sleep()
+sven.eat()
 
+# Polymorphism
+for pet in [elsa, nisse]:
+    print(pet.speak())
+
+# Utilizing built-in functions
 book = Book('Factufulness', 'Hans Rosling', 500)
 print(book)
 print(len(book))
