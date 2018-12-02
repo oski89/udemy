@@ -101,3 +101,15 @@ test_patterns = ['[a-z]+',      # lower case letters
                  '[A-Z][a-z]+']  # one upper case letter followed by one lower case letter
 multi_re_find(test_patterns, test_phrase)
 
+# REGEX ESCAPE CODES --> [A-Z]
+
+test_phrase = 'This is a string with some numbers 1233 and a symbol #hashtag'
+
+test_patterns = [r'\d+',  # digits
+                 r'\D+',  # non-digits
+                 r'\s+',  # whitespace
+                 r'\S+',  # non-whitespace
+                 r'\w+',  # alphanumerical
+                 r'\W+']  # non-alphanumerical
+
+multi_re_find(test_patterns, test_phrase)
